@@ -16,6 +16,7 @@
         <jdbi.version>3.20.0</jdbi.version>
         <liquibase.version>4.3.5</liquibase.version>
         <liquibase-slf4j.version>4.0.0</liquibase-slf4j.version>
+        <autovalue.version>1.8.1</autovalue.version>
 
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -87,6 +88,16 @@
             <groupId>com.mattbertolini</groupId>
             <artifactId>liquibase-slf4j</artifactId>
             <version>${liquibase-slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.auto.value</groupId>
+            <artifactId>auto-value</artifactId>
+            <version>${autovalue.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.auto.value</groupId>
+            <artifactId>auto-value-annotations</artifactId>
+            <version>${autovalue.version}</version>
         </dependency>
     </dependencies>
 
