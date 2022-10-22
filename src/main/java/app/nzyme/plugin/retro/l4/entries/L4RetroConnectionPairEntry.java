@@ -12,13 +12,13 @@ public abstract class L4RetroConnectionPairEntry {
     public abstract String destinationMac();
     public abstract String sourceAddress();
     public abstract String destinationAddress();
-    public abstract String sourcePort();
-    public abstract String destinationPort();
+    public abstract Integer sourcePort();
+    public abstract Integer destinationPort();
     public abstract Long connectionCount();
     public abstract Long size();
     public abstract DateTime timestamp();
 
-    public static L4RetroConnectionPairEntry create(String tapName, String l4Type, String sourceMac, String destinationMac, String sourceAddress, String destinationAddress, String sourcePort, String destinationPort, Long connectionCount, Long size, DateTime timestamp) {
+    public static L4RetroConnectionPairEntry create(String tapName, String l4Type, String sourceMac, String destinationMac, String sourceAddress, String destinationAddress, Integer sourcePort, Integer destinationPort, Long connectionCount, Long size, DateTime timestamp) {
         return builder()
                 .tapName(tapName)
                 .l4Type(l4Type)
@@ -52,9 +52,9 @@ public abstract class L4RetroConnectionPairEntry {
 
         public abstract Builder destinationAddress(String destinationAddress);
 
-        public abstract Builder sourcePort(String sourcePort);
+        public abstract Builder sourcePort(Integer sourcePort);
 
-        public abstract Builder destinationPort(String destinationPort);
+        public abstract Builder destinationPort(Integer destinationPort);
 
         public abstract Builder connectionCount(Long connectionCount);
 
@@ -64,5 +64,5 @@ public abstract class L4RetroConnectionPairEntry {
 
         public abstract L4RetroConnectionPairEntry build();
     }
-
+    
 }
