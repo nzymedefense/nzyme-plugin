@@ -1,4 +1,4 @@
-package app.nzyme.plugin;
+package app.nzyme.plugin.rest.security;
 
 import javax.ws.rs.NameBinding;
 import java.lang.annotation.Retention;
