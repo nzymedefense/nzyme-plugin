@@ -1,5 +1,6 @@
 package app.nzyme.plugin.rest;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.auto.value.AutoValue;
 
 import javax.annotation.Nullable;
@@ -12,14 +13,18 @@ public abstract class ConfigurationEntryResponse {
         NUMBER
     }
 
+    @JsonProperty("key")
     public abstract String key();
 
+    @JsonProperty("value")
     @Nullable
     public abstract Object value();
 
+    @JsonProperty("default_value")
     @Nullable
     public abstract Object defaultValue();
 
+    @JsonProperty("requires_restart")
     public abstract boolean requiresRestart();
 
     public static ConfigurationEntryResponse create(String key, Object value, Object defaultValue, boolean requiresRestart) {
@@ -47,5 +52,5 @@ public abstract class ConfigurationEntryResponse {
 
         public abstract ConfigurationEntryResponse build();
     }
-    
+
 }
