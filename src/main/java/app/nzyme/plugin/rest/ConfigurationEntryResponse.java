@@ -2,6 +2,8 @@ package app.nzyme.plugin.rest;
 
 import com.google.auto.value.AutoValue;
 
+import javax.annotation.Nullable;
+
 @AutoValue
 public abstract class ConfigurationEntryResponse {
 
@@ -11,8 +13,13 @@ public abstract class ConfigurationEntryResponse {
     }
 
     public abstract String key();
+
+    @Nullable
     public abstract Object value();
+
+    @Nullable
     public abstract Object defaultValue();
+
     public abstract boolean requiresRestart();
 
     public static ConfigurationEntryResponse create(String key, Object value, Object defaultValue, boolean requiresRestart) {
@@ -40,5 +47,5 @@ public abstract class ConfigurationEntryResponse {
 
         public abstract ConfigurationEntryResponse build();
     }
-
+    
 }
