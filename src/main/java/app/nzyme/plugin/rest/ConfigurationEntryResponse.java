@@ -16,9 +16,16 @@ public abstract class ConfigurationEntryResponse {
     @JsonProperty("key")
     public abstract String key();
 
+    @JsonProperty("key_human_readable")
+    public abstract String keyHumanReadable();
+
     @JsonProperty("value")
     @Nullable
     public abstract Object value();
+
+    @JsonProperty("value_type")
+    @Nullable
+    public abstract ValueType valueType();
 
     @JsonProperty("default_value")
     @Nullable
@@ -27,10 +34,12 @@ public abstract class ConfigurationEntryResponse {
     @JsonProperty("requires_restart")
     public abstract boolean requiresRestart();
 
-    public static ConfigurationEntryResponse create(String key, Object value, Object defaultValue, boolean requiresRestart) {
+    public static ConfigurationEntryResponse create(String key, String keyHumanReadable, Object value, ValueType valueType, Object defaultValue, boolean requiresRestart) {
         return builder()
                 .key(key)
+                .keyHumanReadable(keyHumanReadable)
                 .value(value)
+                .valueType(valueType)
                 .defaultValue(defaultValue)
                 .requiresRestart(requiresRestart)
                 .build();
@@ -44,7 +53,11 @@ public abstract class ConfigurationEntryResponse {
     public abstract static class Builder {
         public abstract Builder key(String key);
 
+        public abstract Builder keyHumanReadable(String keyHumanReadable);
+
         public abstract Builder value(Object value);
+
+        public abstract Builder valueType(ValueType valueType);
 
         public abstract Builder defaultValue(Object defaultValue);
 
@@ -52,5 +65,5 @@ public abstract class ConfigurationEntryResponse {
 
         public abstract ConfigurationEntryResponse build();
     }
-
+    
 }
