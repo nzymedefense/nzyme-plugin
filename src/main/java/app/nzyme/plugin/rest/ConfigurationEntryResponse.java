@@ -34,7 +34,11 @@ public abstract class ConfigurationEntryResponse {
     @JsonProperty("requires_restart")
     public abstract boolean requiresRestart();
 
-    public static ConfigurationEntryResponse create(String key, String keyHumanReadable, Object value, ValueType valueType, Object defaultValue, boolean requiresRestart) {
+    @JsonProperty("help_tag")
+    @Nullable
+    public abstract String helpTag();
+
+    public static ConfigurationEntryResponse create(String key, String keyHumanReadable, Object value, ValueType valueType, Object defaultValue, boolean requiresRestart, String helpTag) {
         return builder()
                 .key(key)
                 .keyHumanReadable(keyHumanReadable)
@@ -42,6 +46,7 @@ public abstract class ConfigurationEntryResponse {
                 .valueType(valueType)
                 .defaultValue(defaultValue)
                 .requiresRestart(requiresRestart)
+                .helpTag(helpTag)
                 .build();
     }
 
@@ -62,6 +67,8 @@ public abstract class ConfigurationEntryResponse {
         public abstract Builder defaultValue(Object defaultValue);
 
         public abstract Builder requiresRestart(boolean requiresRestart);
+
+        public abstract Builder helpTag(String helpTag);
 
         public abstract ConfigurationEntryResponse build();
     }
