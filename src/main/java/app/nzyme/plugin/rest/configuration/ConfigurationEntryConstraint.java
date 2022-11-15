@@ -1,5 +1,6 @@
-package app.nzyme.plugin.rest;
+package app.nzyme.plugin.rest.configuration;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.auto.value.AutoValue;
 
 @AutoValue
@@ -10,13 +11,23 @@ public abstract class ConfigurationEntryConstraint {
         NUMBER_RANGE
     }
 
+    @JsonProperty("type")
     public abstract ConstraintType type();
+
+    @JsonProperty("data")
     public abstract Object data();
 
-    public static ConfigurationEntryConstraint create(ConstraintType type, Object data) {
+    public static ConfigurationEntryConstraint createStringLengthConstraint(ConstraintType type, int min, int max) {
         return builder()
                 .type(type)
-                .data(data)
+                .data(StringLengthConstraint.create(min, max))
+                .build();
+    }
+
+    public static ConfigurationEntryConstraint createNumberRangeConstraint(ConstraintType type, int min, int max) {
+        return builder()
+                .type(type)
+                .data(NumberRangeConstraint.create(min, max))
                 .build();
     }
 
