@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.auto.value.AutoValue;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 @AutoValue
 public abstract class ConfigurationEntryResponse {
@@ -34,11 +35,14 @@ public abstract class ConfigurationEntryResponse {
     @JsonProperty("requires_restart")
     public abstract boolean requiresRestart();
 
+    @JsonProperty("constraints")
+    public abstract List<ConfigurationEntryConstraint> constraints();
+
     @JsonProperty("help_tag")
     @Nullable
     public abstract String helpTag();
 
-    public static ConfigurationEntryResponse create(String key, String keyHumanReadable, Object value, ValueType valueType, Object defaultValue, boolean requiresRestart, String helpTag) {
+    public static ConfigurationEntryResponse create(String key, String keyHumanReadable, Object value, ValueType valueType, Object defaultValue, boolean requiresRestart, List<ConfigurationEntryConstraint> constraints, String helpTag) {
         return builder()
                 .key(key)
                 .keyHumanReadable(keyHumanReadable)
@@ -46,6 +50,7 @@ public abstract class ConfigurationEntryResponse {
                 .valueType(valueType)
                 .defaultValue(defaultValue)
                 .requiresRestart(requiresRestart)
+                .constraints(constraints)
                 .helpTag(helpTag)
                 .build();
     }
@@ -68,9 +73,11 @@ public abstract class ConfigurationEntryResponse {
 
         public abstract Builder requiresRestart(boolean requiresRestart);
 
+        public abstract Builder constraints(List<ConfigurationEntryConstraint> constraints);
+
         public abstract Builder helpTag(String helpTag);
 
         public abstract ConfigurationEntryResponse build();
     }
-    
+
 }
