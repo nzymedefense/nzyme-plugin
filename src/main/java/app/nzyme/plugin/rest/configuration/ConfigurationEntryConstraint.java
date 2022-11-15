@@ -17,16 +17,16 @@ public abstract class ConfigurationEntryConstraint {
     @JsonProperty("data")
     public abstract Object data();
 
-    public static ConfigurationEntryConstraint createStringLengthConstraint(ConstraintType type, int min, int max) {
+    public static ConfigurationEntryConstraint createStringLengthConstraint(int min, int max) {
         return builder()
-                .type(type)
+                .type(ConstraintType.STRING_LENGTH)
                 .data(StringLengthConstraint.create(min, max))
                 .build();
     }
 
-    public static ConfigurationEntryConstraint createNumberRangeConstraint(ConstraintType type, int min, int max) {
+    public static ConfigurationEntryConstraint createNumberRangeConstraint(int min, int max) {
         return builder()
-                .type(type)
+                .type(ConstraintType.NUMBER_RANGE)
                 .data(NumberRangeConstraint.create(min, max))
                 .build();
     }
