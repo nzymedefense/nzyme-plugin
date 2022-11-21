@@ -26,6 +26,7 @@
         <liquibase-slf4j.version>4.0.0</liquibase-slf4j.version>
         <autovalue.version>1.8.1</autovalue.version>
         <jersey.version>2.34</jersey.version>
+        <metrics.version>4.2.7</metrics.version>
 
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -112,6 +113,11 @@
             <groupId>org.glassfish.jersey.inject</groupId>
             <artifactId>jersey-hk2</artifactId>
             <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+            <version>${metrics.version}</version>
         </dependency>
     </dependencies>
 
