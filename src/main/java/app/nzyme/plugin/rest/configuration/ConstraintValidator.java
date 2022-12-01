@@ -42,6 +42,12 @@ public class ConstraintValidator {
                 }
 
                 return ConstraintValidationResult.ok();
+            case SIMPLE_BOOLEAN:
+                if (!(value instanceof Boolean)) {
+                    return ConstraintValidationResult.fail("Type [" + value.getClass().getCanonicalName() + "] is not BOOLEAN.");
+                }
+
+                return ConstraintValidationResult.ok();
             default:
                 return ConstraintValidationResult.fail("Unsupported constraint type.");
         }
