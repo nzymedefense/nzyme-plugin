@@ -10,6 +10,11 @@ public interface Registry {
     @Nullable
     String getValueOrNull(String key);
 
+    Optional<String> getEncryptedValue(String key);
+
+    @Nullable
+    String getEncryptedValueOrNull(String key);
+
     void setValue(String key, String value);
 
 }
