@@ -17,4 +17,6 @@ public interface Registry {
 
     void setValue(String key, String value);
 
+    void setEncryptedValue(String key, String value);
+
 }
