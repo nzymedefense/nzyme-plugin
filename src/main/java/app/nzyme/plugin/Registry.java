@@ -10,10 +10,10 @@ public interface Registry {
     @Nullable
     String getValueOrNull(String key);
 
-    Optional<String> getEncryptedValue(String key);
+    Optional<String> getEncryptedValue(String key) throws RegistryCryptoException;
 
     @Nullable
-    String getEncryptedValueOrNull(String key);
+    String getEncryptedValueOrNull(String key) throws RegistryCryptoException;
 
     void setValue(String key, String value);
 
