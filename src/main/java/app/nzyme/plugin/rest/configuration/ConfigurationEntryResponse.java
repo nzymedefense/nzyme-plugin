@@ -11,7 +11,8 @@ public abstract class ConfigurationEntryResponse {
 
     public enum ValueType {
         STRING,
-        NUMBER
+        NUMBER,
+        BOOLEAN
     }
 
     @JsonProperty("key")
