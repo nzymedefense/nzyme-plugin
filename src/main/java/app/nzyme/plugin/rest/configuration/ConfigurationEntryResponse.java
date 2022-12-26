@@ -11,6 +11,7 @@ public abstract class ConfigurationEntryResponse {
 
     public enum ValueType {
         STRING,
+        STRING_ENCRYPTED,
         NUMBER,
         BOOLEAN
     }
