@@ -30,6 +30,10 @@ public abstract class ConfigurationEntryResponse {
     @Nullable
     public abstract ValueType valueType();
 
+    @JsonProperty("encrypted_value_set")
+    @Nullable
+    public abstract boolean encryptedValueSet();
+
     @JsonProperty("default_value")
     @Nullable
     public abstract Object defaultValue();
@@ -44,12 +48,13 @@ public abstract class ConfigurationEntryResponse {
     @Nullable
     public abstract String helpTag();
 
-    public static ConfigurationEntryResponse create(String key, String keyHumanReadable, Object value, ValueType valueType, Object defaultValue, boolean requiresRestart, List<ConfigurationEntryConstraint> constraints, String helpTag) {
+    public static ConfigurationEntryResponse create(String key, String keyHumanReadable, Object value, ValueType valueType, boolean encryptedValueSet, Object defaultValue, boolean requiresRestart, List<ConfigurationEntryConstraint> constraints, String helpTag) {
         return builder()
                 .key(key)
                 .keyHumanReadable(keyHumanReadable)
                 .value(value)
                 .valueType(valueType)
+                .encryptedValueSet(encryptedValueSet)
                 .defaultValue(defaultValue)
                 .requiresRestart(requiresRestart)
                 .constraints(constraints)
@@ -60,7 +65,7 @@ public abstract class ConfigurationEntryResponse {
     public static Builder builder() {
         return new AutoValue_ConfigurationEntryResponse.Builder();
     }
-
+    
     @AutoValue.Builder
     public abstract static class Builder {
         public abstract Builder key(String key);
@@ -70,6 +75,8 @@ public abstract class ConfigurationEntryResponse {
         public abstract Builder value(Object value);
 
         public abstract Builder valueType(ValueType valueType);
+
+        public abstract Builder encryptedValueSet(boolean encryptedValueSet);
 
         public abstract Builder defaultValue(Object defaultValue);
 
@@ -81,5 +88,4 @@ public abstract class ConfigurationEntryResponse {
 
         public abstract ConfigurationEntryResponse build();
     }
-
 }
