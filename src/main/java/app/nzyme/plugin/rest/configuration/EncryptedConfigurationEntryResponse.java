@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 @AutoValue
-public abstract class ConfigurationEntryResponse {
+public abstract class EncryptedConfigurationEntryResponse {
 
     @JsonProperty("key")
     public abstract String key();
@@ -15,17 +15,13 @@ public abstract class ConfigurationEntryResponse {
     @JsonProperty("key_human_readable")
     public abstract String keyHumanReadable();
 
-    @JsonProperty("value")
+    @JsonProperty("value_is_set")
     @Nullable
-    public abstract Object value();
+    public abstract Boolean valueIsSet();
 
     @JsonProperty("value_type")
     @Nullable
     public abstract ConfigurationEntryValueType valueType();
-
-    @JsonProperty("default_value")
-    @Nullable
-    public abstract Object defaultValue();
 
     @JsonProperty("requires_restart")
     public abstract Boolean requiresRestart();
@@ -37,13 +33,12 @@ public abstract class ConfigurationEntryResponse {
     @Nullable
     public abstract String helpTag();
 
-    public static ConfigurationEntryResponse create(String key, String keyHumanReadable, Object value, ConfigurationEntryValueType valueType, Object defaultValue, Boolean requiresRestart, List<ConfigurationEntryConstraint> constraints, String helpTag) {
+    public static EncryptedConfigurationEntryResponse create(String key, String keyHumanReadable, Boolean valueIsSet, ConfigurationEntryValueType valueType, Boolean requiresRestart, List<ConfigurationEntryConstraint> constraints, String helpTag) {
         return builder()
                 .key(key)
                 .keyHumanReadable(keyHumanReadable)
-                .value(value)
+                .valueIsSet(valueIsSet)
                 .valueType(valueType)
-                .defaultValue(defaultValue)
                 .requiresRestart(requiresRestart)
                 .constraints(constraints)
                 .helpTag(helpTag)
@@ -51,7 +46,7 @@ public abstract class ConfigurationEntryResponse {
     }
 
     public static Builder builder() {
-        return new AutoValue_ConfigurationEntryResponse.Builder();
+        return new AutoValue_EncryptedConfigurationEntryResponse.Builder();
     }
 
     @AutoValue.Builder
@@ -60,11 +55,9 @@ public abstract class ConfigurationEntryResponse {
 
         public abstract Builder keyHumanReadable(String keyHumanReadable);
 
-        public abstract Builder value(Object value);
+        public abstract Builder valueIsSet(Boolean valueIsSet);
 
         public abstract Builder valueType(ConfigurationEntryValueType valueType);
-
-        public abstract Builder defaultValue(Object defaultValue);
 
         public abstract Builder requiresRestart(Boolean requiresRestart);
 
@@ -72,7 +65,7 @@ public abstract class ConfigurationEntryResponse {
 
         public abstract Builder helpTag(String helpTag);
 
-        public abstract ConfigurationEntryResponse build();
+        public abstract EncryptedConfigurationEntryResponse build();
     }
 
 }
