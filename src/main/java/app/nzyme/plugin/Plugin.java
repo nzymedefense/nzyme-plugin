@@ -4,7 +4,7 @@ public interface Plugin {
 
     void initialize(PluginEntryPoint pluginEntryPoint,
                     Registry registry,
-                    NodeIdProvider nodeIdProvider,
+                    NodeIdentificationProvider nodeIdentificationProvider,
                     MetricsRegistryProvider metricsRegistryProvider
     );
 
