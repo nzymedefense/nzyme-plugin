@@ -19,4 +19,6 @@ public interface Registry {
 
     void setEncryptedValue(String key, String value) throws RegistryCryptoException;
 
+    void deleteValue(String key);
+
 }
