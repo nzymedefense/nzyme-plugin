@@ -10,6 +10,6 @@ public interface MessageBus {
     void sendToAllOnlineNodes(ClusterMessage message);
     void onMessageReceived(MessageType type, MessageHandler messageHandler);
 
-    List<ReceivedMessage> getAllMessages(int limit, int offset);
+    List<StoredMessage> getAllMessages(int limit, int offset);
 
 }

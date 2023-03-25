@@ -14,9 +14,9 @@ public interface TasksQueue {
     void poll();
     void retry(long taskId);
 
-    List<ReceivedTask> getAllFailedTasksSince(DateTime since);
-    List<ReceivedTask> getAllStuckTasks(DateTime timeout);
+    List<StoredTask> getAllFailedTasksSince(DateTime since);
+    List<StoredTask> getAllStuckTasks(DateTime timeout);
 
-    List<ReceivedTask> getAllTasks(int limit, int offset);
+    List<StoredTask> getAllTasks(int limit, int offset);
 
 }
