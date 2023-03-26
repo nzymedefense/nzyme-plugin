@@ -18,5 +18,6 @@ public interface TasksQueue {
     List<StoredTask> getAllStuckTasks(DateTime timeout);
 
     List<StoredTask> getAllTasks(int limit, int offset);
+    long getTotalTaskCount();
 
 }

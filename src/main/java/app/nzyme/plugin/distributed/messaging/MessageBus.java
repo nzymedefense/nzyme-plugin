@@ -11,5 +11,6 @@ public interface MessageBus {
     void onMessageReceived(MessageType type, MessageHandler messageHandler);
 
     List<StoredMessage> getAllMessages(int limit, int offset);
+    long getTotalMessageCount();
 
 }
