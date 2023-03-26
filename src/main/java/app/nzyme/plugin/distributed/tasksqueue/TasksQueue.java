@@ -12,12 +12,13 @@ public interface TasksQueue {
 
     void publish(Task task);
     void poll();
-    void retry(long taskId);
+    void cancelTask(long taskId);
 
     List<StoredTask> getAllFailedTasksSince(DateTime since);
     List<StoredTask> getAllStuckTasks(DateTime timeout);
 
     List<StoredTask> getAllTasks(int limit, int offset);
     long getTotalTaskCount();
+
 
 }
