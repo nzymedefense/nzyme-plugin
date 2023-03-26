@@ -32,7 +32,10 @@ public abstract class StoredTask {
     @Nullable
     public abstract DateTime lastProcessedAt();
 
-    public static StoredTask create(Long id, UUID sender, TaskType type, Boolean allowRetry, Map<String, Object> parameters, DateTime createdAt, TaskStatus status, Integer retries, boolean allowProcessSelf, TaskStatus previousStatus, Integer processingTimeMs, DateTime firstProcessedAt, DateTime lastProcessedAt) {
+    @Nullable
+    public abstract UUID processedBy();
+
+    public static StoredTask create(Long id, UUID sender, TaskType type, Boolean allowRetry, Map<String, Object> parameters, DateTime createdAt, TaskStatus status, Integer retries, boolean allowProcessSelf, TaskStatus previousStatus, Integer processingTimeMs, DateTime firstProcessedAt, DateTime lastProcessedAt, UUID processedBy) {
         return builder()
                 .id(id)
                 .sender(sender)
@@ -47,6 +50,7 @@ public abstract class StoredTask {
                 .processingTimeMs(processingTimeMs)
                 .firstProcessedAt(firstProcessedAt)
                 .lastProcessedAt(lastProcessedAt)
+                .processedBy(processedBy)
                 .build();
     }
 
@@ -82,7 +86,8 @@ public abstract class StoredTask {
 
         public abstract Builder lastProcessedAt(DateTime lastProcessedAt);
 
+        public abstract Builder processedBy(UUID processedBy);
+
         public abstract StoredTask build();
     }
-
 }
