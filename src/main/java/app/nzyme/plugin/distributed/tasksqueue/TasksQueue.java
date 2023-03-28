@@ -13,6 +13,7 @@ public interface TasksQueue {
     void publish(Task task);
     void poll();
     void acknowledgeTaskFailure(long taskId);
+    void acknowledgeAllTaskFailures();
 
     List<StoredTask> getAllFailedTasksSince(DateTime since);
     List<StoredTask> getAllStuckTasks(DateTime timeout);

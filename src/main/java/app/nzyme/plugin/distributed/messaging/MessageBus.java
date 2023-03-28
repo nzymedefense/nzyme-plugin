@@ -13,6 +13,7 @@ public interface MessageBus {
     void onMessageReceived(MessageType type, MessageHandler messageHandler);
 
     void acknowledgeMessageFailure(long messageId);
+    void acknowledgeAllMessageFailures();
 
     List<StoredMessage> getAllFailedMessagesSince(DateTime since);
     List<StoredMessage> getAllStuckMessages(DateTime timeout);
