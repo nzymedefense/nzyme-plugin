@@ -5,6 +5,8 @@ import java.util.Optional;
 
 public interface Registry {
 
+    void onChange(String key, Runnable run);
+
     Optional<String> getValue(String key);
 
     @Nullable
