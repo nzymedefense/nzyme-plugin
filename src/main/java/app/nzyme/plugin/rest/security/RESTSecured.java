@@ -13,6 +13,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({TYPE, METHOD})
 public @interface RESTSecured {
 
-    PermissionLevel level();
+    PermissionLevel value();
 
 }
