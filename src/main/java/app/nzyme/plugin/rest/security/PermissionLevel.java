@@ -4,6 +4,6 @@ public enum PermissionLevel {
 
     SUPERADMINISTRATOR,
     ORGADMINISTRATOR,
-    TENANTUSER
+    ANY
 
 }
