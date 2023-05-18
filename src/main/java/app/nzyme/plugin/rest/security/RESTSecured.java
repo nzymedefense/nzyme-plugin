@@ -11,4 +11,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @NameBinding
 @Retention(RUNTIME)
 @Target({TYPE, METHOD})
-public @interface RESTSecured { }
+public @interface RESTSecured {
+
+    PermissionLevel level();
+
+}
