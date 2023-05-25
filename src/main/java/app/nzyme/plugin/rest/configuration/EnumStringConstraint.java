@@ -25,5 +25,5 @@ public abstract class EnumStringConstraint {
 
         public abstract EnumStringConstraint build();
     }
-    
+
 }
