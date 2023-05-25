@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.auto.value.AutoValue;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 @AutoValue
 public abstract class ConfigurationEntryConstraint {
@@ -11,7 +12,8 @@ public abstract class ConfigurationEntryConstraint {
     enum ConstraintType {
         STRING_LENGTH,
         NUMBER_RANGE,
-        SIMPLE_BOOLEAN
+        SIMPLE_BOOLEAN,
+        ENUM_STRINGS
     }
 
     @JsonProperty("type")
@@ -39,6 +41,13 @@ public abstract class ConfigurationEntryConstraint {
         return builder()
                 .type(ConstraintType.SIMPLE_BOOLEAN)
                 .data(null)
+                .build();
+    }
+
+    public static ConfigurationEntryConstraint createEnumStringsConstraint(List<String> enums) {
+        return builder()
+                .type(ConstraintType.ENUM_STRINGS)
+                .data(EnumStringsConstraint.create(enums))
                 .build();
     }
 
