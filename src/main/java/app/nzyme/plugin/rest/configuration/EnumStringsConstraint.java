@@ -1,5 +1,6 @@
 package app.nzyme.plugin.rest.configuration;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.auto.value.AutoValue;
 
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.List;
 @AutoValue
 public abstract class EnumStringsConstraint {
 
+    @JsonProperty("strings")
     public abstract List<String> strings();
 
     public static EnumStringsConstraint create(List<String> strings) {
