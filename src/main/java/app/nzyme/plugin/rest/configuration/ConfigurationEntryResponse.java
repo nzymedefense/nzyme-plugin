@@ -27,10 +27,6 @@ public abstract class ConfigurationEntryResponse {
     @Nullable
     public abstract Object defaultValue();
 
-    @JsonProperty("enum_values")
-    @Nullable
-    public abstract List<Object> enumValues();
-
     @JsonProperty("requires_restart")
     public abstract Boolean requiresRestart();
 
@@ -41,14 +37,13 @@ public abstract class ConfigurationEntryResponse {
     @Nullable
     public abstract String helpTag();
 
-    public static ConfigurationEntryResponse create(String key, String keyHumanReadable, Object value, ConfigurationEntryValueType valueType, Object defaultValue, List<Object> enumValues, Boolean requiresRestart, List<ConfigurationEntryConstraint> constraints, String helpTag) {
+    public static ConfigurationEntryResponse create(String key, String keyHumanReadable, Object value, ConfigurationEntryValueType valueType, Object defaultValue, Boolean requiresRestart, List<ConfigurationEntryConstraint> constraints, String helpTag) {
         return builder()
                 .key(key)
                 .keyHumanReadable(keyHumanReadable)
                 .value(value)
                 .valueType(valueType)
                 .defaultValue(defaultValue)
-                .enumValues(enumValues)
                 .requiresRestart(requiresRestart)
                 .constraints(constraints)
                 .helpTag(helpTag)
@@ -58,7 +53,7 @@ public abstract class ConfigurationEntryResponse {
     public static Builder builder() {
         return new AutoValue_ConfigurationEntryResponse.Builder();
     }
-    
+
     @AutoValue.Builder
     public abstract static class Builder {
         public abstract Builder key(String key);
@@ -71,8 +66,6 @@ public abstract class ConfigurationEntryResponse {
 
         public abstract Builder defaultValue(Object defaultValue);
 
-        public abstract Builder enumValues(List<Object> enumValues);
-
         public abstract Builder requiresRestart(Boolean requiresRestart);
 
         public abstract Builder constraints(List<ConfigurationEntryConstraint> constraints);
@@ -81,4 +74,5 @@ public abstract class ConfigurationEntryResponse {
 
         public abstract ConfigurationEntryResponse build();
     }
+
 }
