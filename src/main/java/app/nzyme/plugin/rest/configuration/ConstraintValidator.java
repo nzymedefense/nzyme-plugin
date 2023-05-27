@@ -48,8 +48,17 @@ public class ConstraintValidator {
                 }
 
                 return ConstraintValidationResult.ok();
+            case ENUM_STRINGS:
+                String es = (String) value;
+                EnumStringsConstraint esc = (EnumStringsConstraint) constraint.data();
+
+                if (!esc.strings().contains(es)) {
+                    return ConstraintValidationResult.fail("String not in enum.");
+                }
+
+                return ConstraintValidationResult.ok();
             default:
-                return ConstraintValidationResult.fail("Unsupported constraint type.");
+                throw new RuntimeException("Unsupported constraint type.");
         }
     }
 
