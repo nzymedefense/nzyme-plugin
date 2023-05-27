@@ -5,6 +5,7 @@ public enum ConfigurationEntryValueType {
     STRING,
     STRING_ENCRYPTED,
     NUMBER,
-    BOOLEAN
+    BOOLEAN,
+    ENUM_STRINGS
 
 }
