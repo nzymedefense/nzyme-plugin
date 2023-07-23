@@ -1,5 +1,8 @@
 package app.nzyme.plugin.rest.configuration;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 public class ConstraintValidator {
 
     public static ConstraintValidationResult validate(Object value, ConfigurationEntryConstraint constraint) {
@@ -54,6 +57,14 @@ public class ConstraintValidator {
 
                 if (!esc.strings().contains(es)) {
                     return ConstraintValidationResult.fail("String not in enum.");
+                }
+
+                return ConstraintValidationResult.ok();
+            case URI:
+                try {
+                    new URI((String) value);
+                } catch (URISyntaxException e) {
+                    return ConstraintValidationResult.fail("Invalid URI.");
                 }
 
                 return ConstraintValidationResult.ok();

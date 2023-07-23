@@ -13,7 +13,8 @@ public abstract class ConfigurationEntryConstraint {
         STRING_LENGTH,
         NUMBER_RANGE,
         SIMPLE_BOOLEAN,
-        ENUM_STRINGS
+        ENUM_STRINGS,
+        URI
     }
 
     @JsonProperty("type")
@@ -50,6 +51,15 @@ public abstract class ConfigurationEntryConstraint {
                 .data(EnumStringsConstraint.create(enums))
                 .build();
     }
+
+
+    public static ConfigurationEntryConstraint createHttpUrlConstraint() {
+        return builder()
+                .type(ConstraintType.URI)
+                .data(null)
+                .build();
+    }
+
 
     public static Builder builder() {
         return new AutoValue_ConfigurationEntryConstraint.Builder();
