@@ -157,10 +157,9 @@
                 <version>2.5.3</version>
                 <configuration>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <mavenExecutorId>forked-path</mavenExecutorId>
-                    <tagNameFormat>@{project.version}</tagNameFormat>
-                    <preparationGoals>clean</preparationGoals>
-                    <goals>package</goals>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <goals>deploy</goals>
                 </configuration>
             </plugin>
 
