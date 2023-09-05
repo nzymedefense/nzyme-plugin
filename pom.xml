@@ -56,8 +56,6 @@
         <jersey.version>2.34</jersey.version>
         <metrics.version>4.2.7</metrics.version>
 
-        <project.scm.id>github</project.scm.id>
-
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
