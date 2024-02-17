@@ -1,7 +1,7 @@
 package app.nzyme.plugin.retro.l4.entries;
 
 import com.google.auto.value.AutoValue;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 @AutoValue
 public abstract class L4RetroConnectionPairEntry {
@@ -16,9 +16,9 @@ public abstract class L4RetroConnectionPairEntry {
     public abstract Integer destinationPort();
     public abstract Long connectionCount();
     public abstract Long size();
-    public abstract DateTime timestamp();
+    public abstract ZonedDateTime timestamp();
 
-    public static L4RetroConnectionPairEntry create(String tapName, String l4Type, String sourceMac, String destinationMac, String sourceAddress, String destinationAddress, Integer sourcePort, Integer destinationPort, Long connectionCount, Long size, DateTime timestamp) {
+    public static L4RetroConnectionPairEntry create(String tapName, String l4Type, String sourceMac, String destinationMac, String sourceAddress, String destinationAddress, Integer sourcePort, Integer destinationPort, Long connectionCount, Long size, ZonedDateTime timestamp) {
         return builder()
                 .tapName(tapName)
                 .l4Type(l4Type)
@@ -60,7 +60,7 @@ public abstract class L4RetroConnectionPairEntry {
 
         public abstract Builder size(Long size);
 
-        public abstract Builder timestamp(DateTime timestamp);
+        public abstract Builder timestamp(ZonedDateTime timestamp);
 
         public abstract L4RetroConnectionPairEntry build();
     }

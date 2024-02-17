@@ -4,7 +4,7 @@
 
     <groupId>app.nzyme</groupId>
     <artifactId>nzyme-plugin</artifactId>
-    <version>2.0.4-SNAPSHOT</version>
+    <version>2.1.0-SNAPSHOT</version>
 
     <name>nzyme Plugin Interfaces</name>
     <description>Interfaces required to develop nzyme plugins.</description>
@@ -47,14 +47,14 @@
     <properties>
         <guava.version>30.1.1-jre</guava.version>
         <pcap4j.version>1.8.2</pcap4j.version>
-        <jodatime.version>2.10.10</jodatime.version>
-        <jackson.version>2.13.1</jackson.version>
+        <jackson.version>2.13.5</jackson.version>
         <jdbi.version>3.20.0</jdbi.version>
         <liquibase.version>4.3.5</liquibase.version>
         <liquibase-slf4j.version>4.0.0</liquibase-slf4j.version>
         <autovalue.version>1.8.1</autovalue.version>
         <jersey.version>2.34</jersey.version>
         <metrics.version>4.2.7</metrics.version>
+        <testng.version>7.9.0</testng.version>
 
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -77,11 +77,6 @@
             <version>${pcap4j.version}</version>
         </dependency>
         <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>${jodatime.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
             <version>${jackson.version}</version>
@@ -92,11 +87,6 @@
             <version>${jackson.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-joda</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.jdbi</groupId>
             <artifactId>jdbi3-core</artifactId>
             <version>${jdbi.version}</version>
@@ -104,11 +94,6 @@
         <dependency>
             <groupId>org.jdbi</groupId>
             <artifactId>jdbi3-postgres</artifactId>
-            <version>${jdbi.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jdbi</groupId>
-            <artifactId>jdbi3-jodatime2</artifactId>
             <version>${jdbi.version}</version>
         </dependency>
         <dependency>
@@ -131,11 +116,13 @@
             <groupId>com.google.auto.value</groupId>
             <artifactId>auto-value</artifactId>
             <version>${autovalue.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.google.auto.value</groupId>
             <artifactId>auto-value-annotations</artifactId>
             <version>${autovalue.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.inject</groupId>
@@ -147,6 +134,14 @@
             <artifactId>metrics-core</artifactId>
             <version>${metrics.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
