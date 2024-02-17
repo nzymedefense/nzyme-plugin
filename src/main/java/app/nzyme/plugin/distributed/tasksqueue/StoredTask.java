@@ -1,8 +1,8 @@
 package app.nzyme.plugin.distributed.tasksqueue;
 
 import com.google.auto.value.AutoValue;
-import org.joda.time.DateTime;
 
+import java.time.ZonedDateTime;
 import javax.annotation.Nullable;
 import java.util.Map;
 import java.util.UUID;
@@ -15,7 +15,7 @@ public abstract class StoredTask {
     public abstract TaskType type();
     public abstract Boolean allowRetry();
     public abstract Map<String, Object> parameters();
-    public abstract DateTime createdAt();
+    public abstract ZonedDateTime createdAt();
     public abstract TaskStatus status();
     public abstract Integer retries();
     public abstract boolean allowProcessSelf();
@@ -27,15 +27,15 @@ public abstract class StoredTask {
     public abstract Integer processingTimeMs();
 
     @Nullable
-    public abstract DateTime firstProcessedAt();
+    public abstract ZonedDateTime firstProcessedAt();
 
     @Nullable
-    public abstract DateTime lastProcessedAt();
+    public abstract ZonedDateTime lastProcessedAt();
 
     @Nullable
     public abstract UUID processedBy();
 
-    public static StoredTask create(Long id, UUID sender, TaskType type, Boolean allowRetry, Map<String, Object> parameters, DateTime createdAt, TaskStatus status, Integer retries, boolean allowProcessSelf, TaskStatus previousStatus, Integer processingTimeMs, DateTime firstProcessedAt, DateTime lastProcessedAt, UUID processedBy) {
+    public static StoredTask create(Long id, UUID sender, TaskType type, Boolean allowRetry, Map<String, Object> parameters, ZonedDateTime createdAt, TaskStatus status, Integer retries, boolean allowProcessSelf, TaskStatus previousStatus, Integer processingTimeMs, ZonedDateTime firstProcessedAt, ZonedDateTime lastProcessedAt, UUID processedBy) {
         return builder()
                 .id(id)
                 .sender(sender)
@@ -70,7 +70,7 @@ public abstract class StoredTask {
 
         public abstract Builder parameters(Map<String, Object> parameters);
 
-        public abstract Builder createdAt(DateTime createdAt);
+        public abstract Builder createdAt(ZonedDateTime createdAt);
 
         public abstract Builder status(TaskStatus status);
 
@@ -82,9 +82,9 @@ public abstract class StoredTask {
 
         public abstract Builder processingTimeMs(Integer processingTimeMs);
 
-        public abstract Builder firstProcessedAt(DateTime firstProcessedAt);
+        public abstract Builder firstProcessedAt(ZonedDateTime firstProcessedAt);
 
-        public abstract Builder lastProcessedAt(DateTime lastProcessedAt);
+        public abstract Builder lastProcessedAt(ZonedDateTime lastProcessedAt);
 
         public abstract Builder processedBy(UUID processedBy);
 

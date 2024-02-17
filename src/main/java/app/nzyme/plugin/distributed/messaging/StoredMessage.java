@@ -1,8 +1,8 @@
 package app.nzyme.plugin.distributed.messaging;
 
 import com.google.auto.value.AutoValue;
-import org.joda.time.DateTime;
 
+import java.time.ZonedDateTime;
 import javax.annotation.Nullable;
 import java.util.Map;
 import java.util.UUID;
@@ -16,18 +16,18 @@ public abstract class StoredMessage {
     public abstract MessageType type();
     public abstract Map<String, Object> parameters();
     public abstract MessageStatus status();
-    public abstract DateTime createdAt();
+    public abstract ZonedDateTime createdAt();
 
     @Nullable
     public abstract Long cycleLimiter();
 
     @Nullable
-    public abstract DateTime acknowledgedAt();
+    public abstract ZonedDateTime acknowledgedAt();
 
     @Nullable
     public abstract Integer processingTimeMs();
 
-    public static StoredMessage create(Long id, UUID sender, UUID receiver, MessageType type, Map<String, Object> parameters, MessageStatus status, DateTime createdAt, Long cycleLimiter, DateTime acknowledgedAt, Integer processingTimeMs) {
+    public static StoredMessage create(Long id, UUID sender, UUID receiver, MessageType type, Map<String, Object> parameters, MessageStatus status, ZonedDateTime createdAt, Long cycleLimiter, ZonedDateTime acknowledgedAt, Integer processingTimeMs) {
         return builder()
                 .id(id)
                 .sender(sender)
@@ -60,11 +60,11 @@ public abstract class StoredMessage {
 
         public abstract Builder status(MessageStatus status);
 
-        public abstract Builder createdAt(DateTime createdAt);
+        public abstract Builder createdAt(ZonedDateTime createdAt);
 
         public abstract Builder cycleLimiter(Long cycleLimiter);
 
-        public abstract Builder acknowledgedAt(DateTime acknowledgedAt);
+        public abstract Builder acknowledgedAt(ZonedDateTime acknowledgedAt);
 
         public abstract Builder processingTimeMs(Integer processingTimeMs);
 

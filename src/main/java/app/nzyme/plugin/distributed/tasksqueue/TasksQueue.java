@@ -1,7 +1,6 @@
 package app.nzyme.plugin.distributed.tasksqueue;
 
-import org.joda.time.DateTime;
-
+import java.time.ZonedDateTime;
 import java.util.List;
 
 public interface TasksQueue {
@@ -15,8 +14,8 @@ public interface TasksQueue {
     void acknowledgeTaskFailure(long taskId);
     void acknowledgeAllTaskFailures();
 
-    List<StoredTask> getAllFailedTasksSince(DateTime since);
-    List<StoredTask> getAllStuckTasks(DateTime timeout);
+    List<StoredTask> getAllFailedTasksSince(ZonedDateTime since);
+    List<StoredTask> getAllStuckTasks(ZonedDateTime timeout);
 
     List<StoredTask> getAllTasks(int limit, int offset);
     long getTotalTaskCount();

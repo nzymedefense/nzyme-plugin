@@ -1,7 +1,6 @@
 package app.nzyme.plugin.distributed.messaging;
 
-import org.joda.time.DateTime;
-
+import java.time.ZonedDateTime;
 import java.util.List;
 
 public interface MessageBus {
@@ -15,8 +14,8 @@ public interface MessageBus {
     void acknowledgeMessageFailure(long messageId);
     void acknowledgeAllMessageFailures();
 
-    List<StoredMessage> getAllFailedMessagesSince(DateTime since);
-    List<StoredMessage> getAllStuckMessages(DateTime timeout);
+    List<StoredMessage> getAllFailedMessagesSince(ZonedDateTime since);
+    List<StoredMessage> getAllStuckMessages(ZonedDateTime timeout);
 
     List<StoredMessage> getAllMessages(int limit, int offset);
     long getTotalMessageCount();

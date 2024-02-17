@@ -17,16 +17,16 @@
 
 package app.nzyme.plugin;
 
+import java.time.ZonedDateTime;
 import liquibase.exception.LiquibaseException;
 import org.jdbi.v3.core.HandleCallback;
 import org.jdbi.v3.core.HandleConsumer;
-import org.joda.time.DateTime;
 
 public interface Database {
 
     void initializeAndMigrate() throws LiquibaseException;
     long getTotalSize();
-    DateTime getDatabaseClock();
+    ZonedDateTime getDatabaseClock();
 
     <R, X extends Exception> R withHandle(HandleCallback<R, X> callback) throws X;
     <X extends Exception> void useHandle(final HandleConsumer<X> callback) throws X;

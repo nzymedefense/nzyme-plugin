@@ -1,7 +1,7 @@
 package app.nzyme.plugin.retro.dns.entries;
 
 import com.google.auto.value.AutoValue;
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 @AutoValue
 public abstract class DNSRetroResponseLogEntry {
@@ -13,9 +13,9 @@ public abstract class DNSRetroResponseLogEntry {
     public abstract String destinationMac();
     public abstract String responseValue();
     public abstract String dataType();
-    public abstract DateTime timestamp();
+    public abstract ZonedDateTime timestamp();
 
-    public static DNSRetroResponseLogEntry create(String tapName, String ip, String server, String sourceMac, String destinationMac, String responseValue, String dataType, DateTime timestamp) {
+    public static DNSRetroResponseLogEntry create(String tapName, String ip, String server, String sourceMac, String destinationMac, String responseValue, String dataType, ZonedDateTime timestamp) {
         return builder()
                 .tapName(tapName)
                 .ip(ip)
@@ -48,7 +48,7 @@ public abstract class DNSRetroResponseLogEntry {
 
         public abstract Builder dataType(String dataType);
 
-        public abstract Builder timestamp(DateTime timestamp);
+        public abstract Builder timestamp(ZonedDateTime timestamp);
 
         public abstract DNSRetroResponseLogEntry build();
     }
