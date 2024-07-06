@@ -11,6 +11,7 @@ public abstract class ConfigurationEntryConstraint {
 
     enum ConstraintType {
         STRING_LENGTH,
+        EXACT_STRING_LENGTH,
         NUMBER_RANGE,
         SIMPLE_BOOLEAN,
         ENUM_STRINGS,
@@ -28,6 +29,13 @@ public abstract class ConfigurationEntryConstraint {
         return builder()
                 .type(ConstraintType.STRING_LENGTH)
                 .data(StringLengthConstraint.create(min, max))
+                .build();
+    }
+
+    public static ConfigurationEntryConstraint createExactStringLengthConstraint(int length) {
+        return builder()
+                .type(ConstraintType.EXACT_STRING_LENGTH)
+                .data(ExactStringLengthConstraint.create(length))
                 .build();
     }
 

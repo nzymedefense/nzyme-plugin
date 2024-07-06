@@ -28,6 +28,19 @@ public class ConstraintValidator {
                 }
 
                 return ConstraintValidationResult.ok();
+            case EXACT_STRING_LENGTH:
+                if (!(value instanceof String)) {
+                    return ConstraintValidationResult.fail("Type [" + value.getClass().getCanonicalName() + "] is not STRING.");
+                }
+
+                String s1 = (String) value;
+                ExactStringLengthConstraint exsc = (ExactStringLengthConstraint) constraint.data();
+
+                if (s1.length() != exsc.length()) {
+                    return ConstraintValidationResult.fail("Value does not have required exact string length.");
+                }
+
+                return ConstraintValidationResult.ok();
             case NUMBER_RANGE:
                 if (!(value instanceof Number)) {
                     return ConstraintValidationResult.fail("Type [" + value.getClass().getCanonicalName() + "] is not NUMBER.");
