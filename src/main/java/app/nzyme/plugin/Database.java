@@ -24,7 +24,9 @@ import org.joda.time.DateTime;
 
 public interface Database {
 
-    void initializeAndMigrate() throws LiquibaseException;
+    void initialize() throws LiquibaseException;
+    void migrate() throws LiquibaseException;
+
     long getTotalSize();
     DateTime getDatabaseClock();
 
