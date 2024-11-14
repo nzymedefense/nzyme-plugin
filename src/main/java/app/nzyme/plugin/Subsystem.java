@@ -3,6 +3,9 @@ package app.nzyme.plugin;
 public enum Subsystem {
 
     NZYME_SYS,
-    DOT_11
-
+    DOT11,
+    ETHERNET,
+    BLUETOOTH,
+    GENERIC
+    
 }
