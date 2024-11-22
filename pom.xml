@@ -51,7 +51,7 @@
         <jackson.version>2.13.1</jackson.version>
         <jdbi.version>3.20.0</jdbi.version>
         <liquibase.version>4.3.5</liquibase.version>
-        <liquibase-slf4j.version>4.0.0</liquibase-slf4j.version>
+        <liquibase-slf4j.version>4.0.0</liquibase-slf4j.version>q
         <autovalue.version>1.8.1</autovalue.version>
         <jersey.version>2.34</jersey.version>
         <metrics.version>4.2.7</metrics.version>
