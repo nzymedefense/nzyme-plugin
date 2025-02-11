@@ -6,6 +6,7 @@ public enum Subsystem {
     DOT11,
     ETHERNET,
     BLUETOOTH,
+    UAV,
     GENERIC
     
 }
